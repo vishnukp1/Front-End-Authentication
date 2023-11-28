@@ -30,7 +30,7 @@ const ForgotPassword = () => {
       localStorage.setItem('token', data.token);
 
       if (response.status === 200) {
-        toast.success('Password reset by username sent successfully!');
+        toast.success('Username found and create new password!');
         // If you want to show the reset password fields after a successful by username, set the state here.
         setpasswordForm(true)
       } else {
