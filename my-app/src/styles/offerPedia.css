@@ -2,13 +2,13 @@ body {
   width: 100%;
 }
 .App {
-  background-color: #e9f3eb;
+  background-color: #e9f3e9;
 }
 .Pagination-btn{
-  background-color: #d2d6fc;
+  background-color: #244322;
 
   color: #f3f4f6;
-  border-color: #cee7ff;
+  border-color: #1e3626;
   border-radius: 9px;
   width: 5rem;
 }
