@@ -4,7 +4,14 @@ body {
 .App {
   background-color: #e9f3eb;
 }
+.Pagination-btn{
+  background-color: #d2d6fc;
 
+  color: #f3f4f6;
+  border-color: #cee7ff;
+  border-radius: 9px;
+  width: 5rem;
+}
 
 .logout-btn {
   background-color: #1b2e1b;

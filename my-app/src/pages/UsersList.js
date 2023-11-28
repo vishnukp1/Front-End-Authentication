@@ -77,6 +77,7 @@ const UsersList = () => {
             </Table>
             <div className="pagination-container">
               <button
+                  className="Pagination-btn"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
@@ -84,6 +85,7 @@ const UsersList = () => {
               </button>
               <span>{currentPage}</span>
               <button
+              className="Pagination-btn"
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
               >
