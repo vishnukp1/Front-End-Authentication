@@ -110,7 +110,7 @@ const ForgotPassword = () => {
         />
       </div>
       <button className="btn-password"  onClick={handleForgotPassword}>
-        Send Reset by username
+        Reset by username
       </button>
 
       {PasswordForm && (
