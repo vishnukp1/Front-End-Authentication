@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
+import "./styles/offerPedia.css"
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import ForgotPassword from "./components/ForgotPassword";
-import ChangePassword from "./components/ChangePassword";
-import UsersList from "./components/UsersList";
+import ForgotPassword from "./pages/ForgotPassword";
+import ChangePassword from "./pages/ChangePassword";
+import UsersList from "./pages/UsersList";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/forgotPassword" element={<ForgotPassword />} />
         <Route exact path="/changePassword" element={<ChangePassword />} />
         <Route exact path="/usersList" element={<UsersList />} />
+       
      </Routes>
     </div>
   );

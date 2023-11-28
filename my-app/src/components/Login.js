@@ -1,69 +1,65 @@
-import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { setToken } from '../Reducers/useReducer';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
-import { setLogin } from '../Reducers/loginReducer';
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { setLogin } from "../Reducers/loginReducer";
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const inputref = useRef();
-
   const loginPass = async (e) => {
     e.preventDefault();
-    const setPassword = inputref.current.upassword.value;
     const setUsername = inputref.current.username.value;
-    console.log(setUsername);
-    console.log(setPassword);
+    const setPassword = inputref.current.upassword.value;
+  
+    // Check if username or password is empty
+    if (!setUsername || !setPassword) {
+      toast.error("Username and Password are required");
+      return;
+    }
+  
     const items = {
       username: setUsername,
       password: setPassword,
     };
-
+  
     try {
       const response = await axios.post(
-        'https://authapidemo.pythonanywhere.com/api/v1/auth/login/',
+        "https://authapidemo.pythonanywhere.com/api/v1/auth/login/",
         items
       );
       const data = response.data;
-      console.log(response.data);
-
+  
       if (data.token) {
         try {
-          toast.success('SUCCESSFULLY LOGIN!');
+          navigate("/usersList");
+          toast.success("SUCCESSFULLY LOGIN!");
           // Store the token in local storage
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('username', data.username);
-
-          // Dispatch the token to Redux if needed
-          dispatch(setToken(data.token));
-
-          // Redirect to a different route upon successful login
-          navigate('/dashboard'); // Replace with your desired route
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("username", data.username);
         } catch (error) {
-          console.error('Error in token:', error);
+          console.error("Error in token:", error);
         }
       } else {
-        alert('Email and Password did not match');
-        localStorage.clear('token');
-        dispatch(setToken(data.token));
-        navigate('/company/login');
+        toast.error("Username and Password did not match");
+        localStorage.clear("token");
       }
     } catch (error) {
-      console.error('Error getting customer data:', error);
+      console.error("Error getting customer data:", error);
     }
   };
+  
 
   return (
     <div className="form-login">
       <form ref={inputref} onSubmit={loginPass}>
-        <h3 style={{ marginTop: '1rem' }}>Sign In</h3>
-        <div className="form-text" style={{ marginTop: '3rem' }}>
+        <h3 style={{ marginTop: "1rem", textAlign: "center" }}>Sign In</h3>
+        <div className="form-text" style={{ marginTop: "1rem" }}>
           <div className="mb-3 ">
-            <label>Email address</label>
+            <label>Username</label>
             <input type="text" className="form-control" name="username" />
           </div>
           <div className="mb-3">
@@ -90,12 +86,12 @@ function Login() {
           <ToastContainer />
         </div>
 
-        <p className="forgot-password text-right">
+        <p className="forgot-password text-center mt-1">
           Forgot <a href="forgotPassword">password?</a>
         </p>
-        <p className="forgot-password text-right">
-          I didn't registered{' '}
-          <h6 style={{ color: 'red' }} onClick={() => dispatch(setLogin())}>
+        <p className="forgot-password text-center mb-1">
+          I didn't registered{" "}
+          <h6 style={{ color: "red" }} onClick={() => dispatch(setLogin())}>
             sign Up?
           </h6>
         </p>
