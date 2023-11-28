@@ -4,7 +4,7 @@ body {
 .App {
   background-color: #e9f3e9;
 }
-.Pagination-btn{
+.Pagination-btn {
   background-color: #244322;
 
   color: #f3f4f6;
@@ -26,7 +26,6 @@ body {
   background-color: #101d14;
   height: 2rem;
   font-size: 18px;
- 
 }
 
 .table-body {
@@ -52,10 +51,6 @@ body {
   width: 100%;
 }
 
-
-
-
-
 .select-custom {
   height: 2rem;
   width: 7rem;
@@ -66,12 +61,11 @@ body {
   text-align: center;
 }
 
-
 @media (min-width: 250px) and (max-width: 350px) {
   .sub-container {
     flex-direction: column;
   }
-  
+
   .home-h4-text {
     width: 20rem;
     margin-left: 1px;
@@ -81,7 +75,6 @@ body {
     margin-left: -18px;
   }
 
- 
   .form-login {
     margin-left: 3.2rem !important;
   }
@@ -91,7 +84,7 @@ body {
   .sub-container {
     flex-direction: column;
   }
-  
+
   .home-h4-text {
     width: 20rem;
     margin-left: 1px;
@@ -109,14 +102,13 @@ body {
   .custom-col {
     padding-left: 35px !important;
   }
-  
 }
 
 @media (min-width: 450px) and (max-width: 576px) {
   .home-h4-text {
     width: 20rem;
   }
-  
+
   .home-main {
     flex-direction: column;
   }
