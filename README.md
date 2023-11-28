@@ -7,3 +7,8 @@ cd my-app
 ### `/my-app>npm start`
 
 
+update nodemodules
+
+### `/my-app>npm install`
+
+
